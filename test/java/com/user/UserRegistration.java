@@ -6,6 +6,7 @@ import org.junit.Test;
 public class UserRegistration {
     FirstNameValidator firstNameValidator=new FirstNameValidator();
     LastNameValidator lastNameValidator=new LastNameValidator();
+    MobileNumberValidator mobileNumberValidator=new MobileNumberValidator();
 
     @Test
     public void checkFirstName_ifValid_returnTrue(){
@@ -53,6 +54,18 @@ public class UserRegistration {
     @Test
     public void check_if_LastName_isOnly_Conatain_CapsLetter(){
         boolean result=lastNameValidator.checkLastName("BACHHAV");
+        Assert.assertFalse("false",result);
+
+    }
+
+    @Test
+    public void check_ifMobile_Number_isValid_Format_returnTrue_(){
+        boolean result=mobileNumberValidator.checkMobileNumber("91 9832569812");
+        Assert.assertTrue("true",result);
+    }
+    @Test
+    public void check_if_Mobile_Number_isShort_returnFalse(){
+        boolean result=mobileNumberValidator.checkMobileNumber("91 098989");
         Assert.assertFalse("false",result);
 
     }

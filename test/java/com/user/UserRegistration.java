@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class UserRegistration {
     FirstNameValidator firstNameValidator=new FirstNameValidator();
+    LastNameValidator lastNameValidator=new LastNameValidator();
 
     @Test
     public void checkFirstName_ifValid_returnTrue(){
@@ -27,6 +28,31 @@ public class UserRegistration {
     @Test
     public void check_if_FirstName_isOnly_Conatain_CapsLetter(){
         boolean result=firstNameValidator.checkFirstName("JITENDRA");
+        Assert.assertFalse("false",result);
+
+    }
+
+    @Test
+    public void checkLastName_ifValid_returnTrue(){
+
+        boolean result=lastNameValidator.checkLastName("Bachhav");
+        Assert.assertTrue("true",result);
+
+    }
+    @Test
+    public void checklastName_isShort_then_returnFalse(){
+
+        boolean result=lastNameValidator.checkLastName("Bac");
+        Assert.assertFalse("false",result);
+    }
+    @Test
+    public void check_if_lastName_isOnly_Contain_smallLetter_(){
+        boolean result=lastNameValidator.checkLastName("bachhav");
+        Assert.assertFalse("false",result);
+    }
+    @Test
+    public void check_if_LastName_isOnly_Conatain_CapsLetter(){
+        boolean result=lastNameValidator.checkLastName("BACHHAV");
         Assert.assertFalse("false",result);
 
     }
